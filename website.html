@@ -1,0 +1,1166 @@
+<html>
+    <head>
+    <meta character="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap" rel="stylesheet">
+        <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,200&display=swap" rel="stylesheet">
+<style>
+  
+    :root{
+        --pink:rgba(227, 61, 148, 1);
+        --blue:rgba(132, 140, 207,1);
+        --light-color:rgb(168,168,168);
+        --box-shadow:1px 3px 5px rgba(0,0,0,0.2);
+        --border:2px solid rgba(0,0,0,0.4);
+        --outline:1px solid rgba(0,0,0,0.4);
+        --outline-hover:3px solid var(--blue);
+    }
+    *{
+        font-family: 'Poppins', sans-serif;
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        outline:none;
+        
+        text-transform: capitalize;
+        transition:all .2s linear;
+    }   
+    html{
+        font-size:60%;
+        overflow-x:hidden;
+        scroll-behavior: smooth;
+        scroll-padding-top:5px;
+        
+    }
+    body{
+        background:#eee;
+    }
+    section{
+        padding:2rem 9%;
+    }
+    .headg{
+        text-align: center;
+        padding: 2rem;
+        padding-bottom: 3rem;
+        font-size: 4.5rem;
+        color:var(--blue);
+    }
+    .headg span{
+        background: var(--pink);
+        background-size: auto;
+        color:#fff;
+        display:inline-block;
+        padding:1.2rem 1.7rem;
+        clip-path:polygon(100% 0,93% 50%,100% 99%,0% 100%,7% 50%,0% 0%);
+    }
+    .btn{
+        margin-top:1rem;
+        display: inline-block;
+        padding: .8rem 3rem;
+        font-size: 1.7rem;
+        border-radius: 2rem;
+        border: .2rem solid var(--blue);
+        color:var(--light-color);
+    }
+    .btn:hover{
+        background: var(--pink);
+        color:#fff;
+        border: none;
+    }
+    .header{
+        position:fixed;
+        top:0;
+        left:0;
+        right:0;
+        z-index:1000;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        justify-content:space-between;
+        padding:0.5rem 9%;background:#fff;
+        box-shadow: var(--box-shadow);
+    
+    }
+    .header .logo{
+        font-size: 2.5rem;
+        font-weight:bold;
+        color:var(--blue);
+    }
+    .header a{
+         text-decoration: none;
+    }
+    .header .logo i{
+        color:var(--pink);
+    }
+    .header .navbar{
+        padding-top:17px;
+       
+    }
+    .header .navbar.active{
+        right:2rem;transition:.3s all linear;
+    }
+    .header .navbar a{
+        font-size:1.7rem;
+    text-decoration: none;
+      padding:5px;
+        color:var(--blue);
+    }
+    .header .navbar a:hover{
+        color:var(--pink);
+    }
+    .header .icons div{
+        height:4.5rem;
+        width:4.5rem;
+        line-height: 4.5rem;
+        border-radius: .5rem;
+        background: #eee;
+        color:var(--blue);
+        font-size: 2rem;
+        text-align: center;
+        cursor: pointer;
+    }
+    .header .icons div:hover{
+        background: var(--pink);
+        color:white;
+    }
+    #menu{
+        display: none;
+    }
+    .header .searchform{
+ 
+        position:absolute;
+       top:110%;
+        right:-110%;
+        max-width:50rem;
+        height:4rem;
+        background: #fff;
+        border-radius: .5rem;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        box-shadow: var(--box-shadow);
+    }
+    .header .searchform.active{
+    right:2rem;
+        transition:.4s all linear;
+    }
+  .header .searchform input{
+      border: none;
+      height:100%;
+      width:100%;
+      background: none;
+      text-transform: none;
+      font-size: 1.6rem;color:var(--blue);
+      padding:0 1.5rem;
+              
+    }
+    .header .searchform label{
+        font-size: 2rem;
+        padding-right: 1.5rem;
+        color:var(--blue);
+        cursor: pointer;
+    }
+    .header .searchform label:hover{
+        color: var(--pink);
+    }
+    
+    .header .shoppingc{
+        position:absolute;
+        top:110%;
+        right:-110%;
+        padding:1rem;
+        border-radius: 3rem;
+        box-shadow: var(--box-shadow);
+        width:34rem;
+        background: #fff;
+    }
+    .header .shoppingc.active{
+        right:2rem;
+        transition:.3s all linear;
+    }
+    .header .shoppingc .box{
+        display:flex;
+        align-items: center;
+        gap:2rem;
+        position: relative;
+        margin:2rem 0;
+    }
+    
+    .header .shoppingc .box img{
+        height:8rem;
+        width:8rem;
+         
+    }
+    .header .shoppingc .box .fa-trash{
+        font-size: 2rem;
+        position: absolute;
+        top:50%;
+        right:2rem;
+        cursor: pointer;
+        color:var(--light-color);
+        transform: translateY(-50%);
+    }
+    .header .shoppingc .box .fa-trash:hover{
+        color:var(--pink);
+    }
+    header .shoppingc .box .content h4{
+        color: var(--blue);
+        font-size: 1.7rem;
+        padding-bottom: 1rem;
+    }
+    header .shoppingc .box .content span{
+          color: var(--light-color);
+        font-size: 1.6rem;
+    }
+    header .shoppingc .box .content .quantity{
+        padding-left: 1rem;
+    }
+    .header .shoppingc .total{
+        font-size: 2rem;
+        padding:.5rem 0;
+        text-align: center;color:var(--blue);
+    }
+    .header .shoppingc .btn{
+        display: block;
+        text-align: center;
+        margin:.5rem;
+        
+    }
+    .header .login{
+        position:absolute;
+        top:110%;
+        right:-110%;
+        width:35rem;
+        box-shadow: var(--box-shadow);
+        padding:2rem;
+        border-radius: .3rem;
+        background: #fff;
+        text-align: center;
+    }
+    .header .login h3{
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        color:var(--blue);
+    }
+    .header .login .box{
+        width:100%;
+        background: #eee;
+        border-radius: .3rem;
+        border: none;
+        padding:1rem;
+        margin:.7rem 0;
+        font-size: 1.8rem;
+        color:var(--blue);
+        text-transform: none;
+    }
+    .header .login p{
+        font-size: 1.5rem;
+        padding: .2rem;
+        color:var(--light-color);
+    }
+    .header .login p a{
+        color:var(--pink);
+        text-decoration: underline;
+    }
+    .header .login.active{
+        right:2rem;
+        transition: .3s all linear;
+    }
+   .home{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('banner.jpg') no-repeat;
+        background-position: center;
+        background-size: cover;
+        padding-top: 17rem;
+        padding-bottom: 10rem;
+    }
+    .home .content{
+        text-align: center;width:60rem;padding:3px;
+        
+    }
+    .home .content h3{
+        color:var(--blue);
+        font-size:4rem;
+        font-weight: 590;
+        
+    }
+    .home .content h3 span{
+        color:var(--pink);
+    }
+    .home .content p{
+        color:var(--light-color);
+        font-size:1.5rem;
+    }
+    .features .box-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+        gap:1.5rem;
+    }
+    .features .box-container .box{
+        padding:3rem 2rem;
+        background: #fff;
+        outline:var(--outline);
+          outline-offset:-6px;
+    text-align: center;
+        box-shadow: var(--box-shadow);
+    }
+    .features .box-container .box:hover{
+        outline: var(--outline-hover);
+        outline-offset: .5rem;
+    
+    }
+    .features .box-container .box img{
+        margin:1rem 0;
+        height:15rem;
+    }
+    .features .box-container .box h3{
+        font-size: 2.5rem;
+        line-height: 1.8;
+        color:var(--blue);
+    }
+    .features .box-container .box p{
+        font-size: 1.5rem;
+        line-height: 1.8;
+        color:var(--light-color);
+        padding:1rem;
+    }
+    .product .pslider{
+         height:470px;
+        padding:1rem;
+    }
+      .product .pslider:first-child{
+        margin-bottom: 2rem;
+    }
+      .product .pslider .box{
+          height:440px;
+          background: #fff;
+          text-align: center;
+          border-radius: .5rem;
+        padding:3rem 2rem;
+          outline-offset: -1rem;
+          outline:var(--outline);
+    }
+    .product .pslider .box:hover{
+        outline: var(--outline-hover);
+        outline-offset: 0rem;
+        transition: .2s all linear; 
+    }
+    .product .pslider .box img{
+        height:15rem;
+    }
+    .product .pslider .box h3{
+font-size: 2.5rem;
+    color:var(--blue);
+    }
+    .product .pslider .box .price{
+        font-size: 2rem;
+        color:var(--blue);
+        
+    }
+     .product .pslider .box .star i
+    {
+     font-size: 1.5rem;
+        color:var(--pink);   
+    }
+    .categories .box-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+        gap:1.5rem;
+    }
+    .categories .box-container .box{
+        padding:3rem 2rem;
+        border-radius: .5rem;
+        background: #fff;
+        box-shadow: var(--box-shadow);
+        outline:var(--outline);
+        outline-offset: -1rem;
+        text-align: center;
+    }
+    .categories .box-container .box:hover{
+        outline:var(--outline-hover);
+        outline-offset: 0rem;
+    }
+       .categories .box-container .box img{
+        width:23rem;
+        margin:1rem 0;
+        height:20rem;
+    }
+    .categories .box-container .box h3{
+        font-size: 2rem;
+        color:var(--blue);
+        line-height: 1.8;
+    }
+    .review .review-swiper{
+        padding: 1rem;
+        margin-bottom: none;
+    }
+    .review .review-swiper .box{
+             height:540px;
+          background: #fff;
+          text-align: center;
+          border-radius: .5rem;
+        padding:3rem 2rem;
+          outline-offset: -1rem;
+          outline:var(--outline);
+    }
+       .review .review-swiper .box:hover{
+            outline:var(--outline-hover);
+        outline-offset: 0rem;
+    }
+    .review .review-swiper .box img{
+        margin:2rem;
+        height: 17rem;
+        border-radius: 50%;
+        width:14rem;
+      
+            }
+    .review .review-swiper .box h3{
+                font-size: 2.4rem;
+        padding-bottom: .5rem;
+        color:var(--blue);
+        line-height: 1.9;
+    }
+        .review .review-swiper .box p{
+            padding:1rem 0;
+            line-height: 1.8;
+            color: var(--light-color);
+            font-size: 1.5rem;
+    }
+    .review .review-swiper .box .stars{
+        color: var(--pink);
+        font-size: 1.5rem;
+    }
+      .blogs .box-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+        gap:1.5rem;
+    }
+    .blogs .box-container .box{
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+        border-radius: .5rem;
+        background: #fff;
+        padding: 8px;
+    }
+    .blogs .box-container .box img{
+        height:25rem;
+        width:100%;
+        
+        object-fit: cover;
+    }
+    .blogs .box-container .box .content{
+        padding: 2rem;
+       
+    }
+    .blogs .box-container .box .content .icons{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        
+        margin-bottom: 1rem;
+        border-bottom: var(--border);
+    }
+    .blogs .box-container .box  .content .icons a{
+        text-decoration: none;
+        color:var(--ligth-color);
+        font-size: 1.5rem;
+    }
+    .blogs .box-container .box  .content .icons a:hover{
+        color: var(--blue);
+    }
+    .blogs .box-container .box  .content .icons a i{
+            color:var(--pink);
+        font-size: 1.5rem;
+    }
+    .blogs .box-container .box  h3{
+       line-height: 1.8;
+        color:var(--blue);
+    padding-right: 3px;
+    }
+    .blogs .box-container .box  p{
+        line-height: 1.8;
+        color: var(--light-color);
+        font-size: 1.5rem;
+        padding: .5rem 0;
+    }
+    .footer{
+        background: #fff;
+    }
+    .footer .box-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+        gap:1.5rem;
+    }
+    .footer .box-container .box h3{
+        font-size: 2.5rem;
+        color: var(--blue);
+        padding: 1rem 0;
+    } 
+    .footer .box-container .box h3 i{
+        color: var(--pink);
+    }
+    .footer .box-container .box .link{
+        text-decoration: none;
+        display: block;
+        font-size: 1.5rem;
+        color: var(--light-color);
+        padding: .5rem 0;
+    }
+     .footer .box-container .box .link i{
+     color: var(--pink);
+         padding-right: .5rem;
+    }
+    .footer .box-container .box .link:hover i{
+        padding-right: 2rem;
+    }
+    .footer .box-container .box p{
+        line-height: 1.8;
+        font-size: 1.5rem;
+    }
+    .footer .box-container .box .share a{
+        height: 4rem;
+        width: 4rem;
+        color: var(--blue);
+      
+        line-height: 4rem;
+        border-radius: .5rem;
+        font-size: 2rem;
+        margin-left: .2rem;
+        text-align: center;
+        background: #eee;
+       
+    }
+    .footer .box-container .box .share a:hover{
+        color: #fff;
+        background: var(--pink);
+    }
+    .footer .box-container .box .email{
+        margin:.7rem 0;
+        padding: 1rem;
+        border-radius: .5rem;
+        background: #eee;
+        font-size: 1.6rem;
+        color: var(--blue);
+        text-transform: none;
+        width: 100%;
+        border: none;
+    }
+    .footer .credit{
+        text-align: center;
+        margin-top: 1rem;
+        padding: 1rem;
+        color: var(--blue);
+        font-size: 2rem;
+        padding-top: 2.5rem;
+        border-top: var(--border);
+    }
+    .footer .credit span{
+        color: var(--pink);
+        
+    }
+    
+    
+    @media(max-width:991px){
+        html{
+            font-size: 55%;
+        }
+        .header{
+            padding:2rem;
+        }
+        section{
+            padding:2rem;
+        }
+    }
+    @media(max-width:768px){
+        .header .navbar{
+            position: absolute;top:110%;
+            right: -110%;
+            width:30rem;
+            box-shadow: var(--box-shadow);
+            border-radius: .3rem;
+            background: #fff;
+        }
+        .header .searchform{
+            width:80%;
+        }
+          #menu{
+        display: inline-block;
+    }
+        .header .navbar a{
+            font-size: 2rem;
+            margin:1.5rem 2rem;
+            display: block;
+        }
+    }
+        @media(max-width:450px){
+        html{
+            font-size: 50%;
+        }
+            .headg{
+                font-size: 2.5rem;
+            }
+            .footer{
+                text-align: center;
+            }
+    }
+    
+    
+    
+    
+    
+    
+   
+</style>
+</head>
+<body>
+<header class="header">
+<a href="#" class="logo"><i class="fas fa-shopping-basket"></i>Shopnow</a>  
+    <nav class="navbar">
+    <a href="#home">Home</a>
+    <a href="#features">features</a>
+    <a href="#product">products</a>
+    <a  href="#categories">catrgories</a>
+    <a  href="#review">review</a>
+    <a  href="#blogs">blogs</a>
+    </nav>
+    <div class="icons">
+    <div class="fas fa-bars" id="menu"></div>
+    <div class="fas fa-search" id="search"></div>
+    <div class="fas fa-shopping-cart" id="cart"></div>
+    <div class="fas fa-user" id="login"></div>
+    </div>
+    <form action="" class="searchform">
+    <input type="search"  id="searchbox" placeholder="search here.."><label for="searchbox" class="fas fa-search"></label>
+    </form>
+    <div class="shoppingc">
+    <div class="box">
+        <img src="https://banner2.cleanpng.com/20180425/ekw/kisspng-chocolate-bar-cadbury-dairy-milk-toffees-5ae06b85c63766.1915117815246570298119.jpg">
+        <div class="content">
+        <h4>Dairymilk Silk </h4>
+        <span class="price">rs.100</span>
+        <span class="quantity">qty:1</span>
+        </div>
+        <i class="fas fa-trash"></i>
+        </div>
+        
+          <div class="box">
+        <img src="https://png.pngtree.com/png-vector/20201129/ourmid/pngtree-potato-chips-png-image_2416606.jpg">
+        <div class="content">
+        <h4>chips</h4>
+        <span class="price">rs.50</span>
+        <span class="quantity">qty:1</span>
+        </div>
+     <i class="fas fa-trash"></i>
+        </div>
+        
+          <div class="box">
+        <img src="https://image.similarpng.com/very-thumbnail/2020/10/Raw-chicken-meat-parsley-on-transparent-background-PNG.png">
+        <div class="content">
+        <h4>flesh</h4>
+        <span class="price">rs.300</span>
+        <span class="quantity">qty:1kg</span>
+        </div>
+             <i class="fas fa-trash"></i>    
+        </div>
+        <div class="total">Total:rs.450</div>
+        <a href="#" class="btn">check out</a>
+    </div>
+    
+    <form action="" class="login">
+    <h3>Log in</h3>
+    <input type="email" placeholder="your email" class="box"><br>
+    <input type="password" placeholder="ur password" class="box">
+    <p>forgot your password <a href="#">Click here</a></p>
+    <p>dont have an account <a href="#">create now</a></p>
+    <input type="submit" value="login" class="btn">
+    </form>
+    </header>
+    
+    <section class="home" id="home">
+    <div class="content">
+        <h3>Fresh and <span>organic </span>products for you</h3>
+        <p>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhhh</p>
+        <a href="#" class="btn">shop now</a>
+        </div>
+            </section>
+    
+    <section class="features" id="features">
+        <h1 class="headg">Our <span> Features </span></h1>
+        
+        <div class="box-container">
+        <div class="box">
+            <img src="image/f1.png">
+            <h3>Fresh and organic</h3>
+            <p>The background image is displayed in its original size.</p>
+            <a href="#" class="btn">read more</a>
+            </div>
+         <div class="box">
+            <img src="image/f2.png">
+            <h3>Free delivery</h3>
+            <p>The background image is displayed in its original size.</p>
+            <a href="#" class="btn">read more</a>
+            </div>
+         <div class="box">
+            <img src="image/f3.png">
+            <h3>East payments</h3>
+            <p>The background image is displayed in its original size.</p>
+            <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+        
+        </section>
+    
+    <section class="product" id="product">
+    <h1 class="headg">Our <span> Products </span></h1>
+    <div class="swiper pslider">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide box">
+            <img src="image/p1.png">
+            <h3>Fresh Orange</h3>
+            <div class="price">4/- to 10/-</div>
+            <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>           
+            <i class="fas fa-star-half-alt"></i> </div>
+<a href="#" class="btn">add to cart</a>
+
+           </div>
+            
+                <div class="swiper-slide box">
+            <img src="image/p2.png">
+            <h3>Fresh Onion</h3>
+            <div class="price">4/- to 10/-</div>
+            <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>           
+            <i class="fas fa-star-half-alt"></i></div>
+<a href="#" class="btn">add to cart</a>
+
+                    </div>
+                    
+                <div class="swiper-slide box">
+            <img src="image/p3.png">
+            <h3>Fresh Carrot</h3>
+            <div class="price">4/- to 10/-</div>
+            <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>           
+            <i class="fas fa-star-half-alt"></i></div>
+<a href="#" class="btn">add to cart</a>
+
+                    </div>
+                    
+                <div class="swiper-slide box">
+            <img src="image/p4.png">
+            <h3>Fresh Cabage</h3>
+            <div class="price">4/- to 10/-</div>
+            <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>           
+            <i class="fas fa-star-half-alt"></i> </div>
+<a href="#" class="btn">add to cart</a>
+
+                   </div>
+              <div class="swiper-slide box">
+            <img src="image/p3.png">
+            <h3>Fresh Carrot</h3>
+            <div class="price">4/- to 10/-</div>
+            <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>           
+            <i class="fas fa-star-half-alt"></i></div>
+<a href="#" class="btn">add to cart</a>
+
+                    </div>
+            </div> </div>
+        
+       <div class="swiper pslider"> 
+        <div class="swiper-wrapper">
+        <div class="swiper-slide box">
+            <img src="image/p5.png">
+            <h3>Fresh Potato</h3>
+            <div class="price">4/- to 10/-</div>
+            <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>           
+            <i class="fas fa-star-half-alt"></i> </div>
+<a href="#" class="btn">add to cart</a>
+
+           </div>
+            
+                <div class="swiper-slide box">
+            <img src="image/p6.png">
+            <h3>Fresh Brinjal</h3>
+            <div class="price">4/- to 10/-</div>
+            <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>           
+            <i class="fas fa-star-half-alt"></i></div>
+<a href="#" class="btn">add to cart</a>
+
+                    </div>
+                    
+                <div class="swiper-slide box">
+            <img src="image/p7.png">
+            <h3>Chocolate</h3>
+            <div class="price">4/- to 10/-</div>
+            <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>           
+            <i class="fas fa-star-half-alt"></i> </div>
+<a href="#" class="btn">add to cart</a>
+
+                   </div>
+                    
+                <div class="swiper-slide box">
+            <img src="image/p8.png">
+            <h3>Meat</h3>
+            <div class="price">4/- to 10/-</div>
+            <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>           
+            <i class="fas fa-star-half-alt"></i> </div>
+<a href="#" class="btn">add to cart</a>
+
+                   </div>
+                   <div class="swiper-slide box">
+            <img src="image/p8.png">
+            <h3>Meat</h3>
+            <div class="price">4/- to 10/-</div>
+            <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>           
+            <i class="fas fa-star-half-alt"></i> </div>
+<a href="#" class="btn">add to cart</a>
+
+                   </div>
+        </div>
+        
+        </div>
+    </section>
+<section class="categories" id="categories">
+    <h1 class="headg">Product <span> Categories </span></h1>
+    <div class="box-container">
+    <div class="box">
+       <img src="image/p2.png">
+        <h3>Vegetables</h3>
+        <p>upto 50% off</p>
+        <a href="#" class="btn">shop now</a>
+        </div>
+        
+            <div class="box">
+       <img src="image/p1.png">
+        <h3>Fruits</h3>
+        <p>upto 30% off</p>
+        <a href="#" class="btn">shop now</a>
+        </div>
+               
+            <div class="box">
+       <img src="image/p8.png">
+        <h3>Meat</h3>
+        <p>upto 60% off</p>
+        <a href="#" class="btn">shop now</a>
+        </div>
+               
+            <div class="box">
+       <img src="image/p9.png">
+        <h3>Fruits</h3>
+        <p>upto 30% off</p>
+        <a href="#" class="btn">shop now</a>
+        </div>
+    </div>
+    
+    </section>
+    <section class="review" id="review">
+    <h1 class="headg">Customers <span> Review </span></h1>
+    <div class="swiper review-swiper">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide box">
+            <img src="image/a1.png">
+            <p>hi iaaaaaaaaaaaa mmmmmmmmm hhhhhhhhhaaaaaaaaaaa rrrrrr iiiiiiiii kkkkkkkkkkkkkkk aaaaaaaaaa ,,,,,,,,,</p>
+            <h3>harika</h3>
+            <div class="stars">
+            <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+            </div>
+            </div>
+                 <div class="swiper-slide box">
+            <img src="image/a3.png">
+            <p>hi iaaaaaaaaaaaa mmmmmmmmm hhhhhhhhhaaaaaaaaaaa rrrrrr iiiiiiiii kkkkkkkkkkkkkkk aaaaaaaaaa ,,,,,,,,,</p>
+            <h3>harika</h3>
+            <div class="stars">
+            <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+            </div>
+            </div>
+          <div class="swiper-slide box">
+            <img src="image/a4.png">
+            <p>hi iaaaaaaaaaaaa mmmmmmmmm hhhhhhhhhaaaaaaaaaaa rrrrrr iiiiiiiii kkkkkkkkkkkkkkk aaaaaaaaaa ,,,,,,,,,</p>
+            <h3>harika</h3>
+            <div class="stars">
+            <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+            </div>
+            </div>
+          <div class="swiper-slide box">
+            <img src="image/a2.png">
+            <p>hi iaaaaaaaaaaaa mmmmmmmmm hhhhhhhhhaaaaaaaaaaa rrrrrr iiiiiiiii kkkkkkkkkkkkkkk aaaaaaaaaa ,,,,,,,,,</p>
+            <h3>harika</h3>
+            <div class="stars">
+            <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+            </div>
+            </div>
+          <div class="swiper-slide box">
+            <img src="image/a3.png">
+            <p>hi iaaaaaaaaaaaa mmmmmmmmm hhhhhhhhhaaaaaaaaaaa rrrrrr iiiiiiiii kkkkkkkkkkkkkkk aaaaaaaaaa ,,,,,,,,,</p>
+            <h3>harika</h3>
+            <div class="stars">
+            <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    
+    <section class="blogs" id="blogs">
+    <h1 class="headg">Our <span> blogs </span> </h1>
+    <div class="box-container">
+        <div class="box">
+        <img src="image/p9.png">
+        <div class="content">
+            <div class="icons">
+            <a href="#"> <i class="fas fa-user"></i> by user </a>
+            <a href="#"> <i class="fas fa-calendar"></i> by user </a>
+            </div>
+            </div>
+        <h3>ddddddddddddddddddddddddddddddddddddddddddddd</h3>
+        <p>sieafjuharika keharju is going to write something that my be anything so keep quite pin drop silence</p>
+            <a href="#"class="btn"> read more </a>
+        </div>
+              <div class="box">
+        <img src="image/p9.png">
+        <div class="content">
+            <div class="icons">
+            <a href="#"> <i class="fas fa-user"></i> by user </a>
+            <a href="#"> <i class="fas fa-calendar"></i> by user </a>
+            </div>
+            </div>
+        <h3>ddddddddddddddddddddddddddddddddddddddddddddd</h3>
+        <p>sieafjuharika keharju is going to write something that my be anything so keep quite pin drop silence</p>
+            <a href="#"class="btn"> read more </a>
+        </div>
+              <div class="box">
+        <img src="image/p9.png">
+        <div class="content">
+            <div class="icons">
+            <a href="#"> <i class="fas fa-user"></i> by user </a>
+            <a href="#"> <i class="fas fa-calendar"></i> by user </a>
+            </div>
+            </div>
+        <h3>ddddddddddddddddddddddddddddddddddddddddddddd</h3>
+        <p>sieafjuharika keharju is going to write something that my be anything so keep quite pin drop silence</p>
+            <a href="#"class="btn"> read more </a>
+        </div>
+        
+        </div>
+    </section>
+   <section class="footer">
+    <div class="box-container">
+       <div class="box">
+        <h3> shopnow <i class="fas fa-shopping-basket"></i></h3>
+         <p>sieafjuharika keharju is going to write something that my be anything so keep quite pin drop silence</p>
+        <div class="share">
+           <a href="#" class="fab fa-facebook"></a>
+             <a href="#" class="fab fa-twitter"></a>
+          <a href="#" class="fab fa-instagram"></a>
+         <a href="#" class="fab fa-linkedin"></a>
+           </div>
+        </div>
+ 
+        
+           <div class="box">
+        <h3>contact info</h3>
+        <a href="#" class="link"><i class="fas fa-phone"></i>9798--023490</a>
+          <a href="#" class="link"><i class="fas fa-phone"></i>9798--023490</a>
+          <a href="#" class="link"><i class="fas fa-envelope"></i>harikakesharaju@gmail.com</a>
+          <a href="#" class="link"><i class="fas fa-map-marker-alt"></i>mumbai.india</a>
+        </div>
+        
+        <div class="box">
+        <h3>Quick links</h3>
+        <a href="#" class="link"><i class="fas fa-arrow-right"></i>home</a>
+          <a href="#" class="link"><i class="fas fa-arrow-right"></i>features</a>
+          <a href="#" class="link"><i class="fas fa-arrow-right"></i>products</a>
+          <a href="#" class="link"><i class="fas fa-arrow-right"></i>categories</a>
+         <a href="#" class="link"><i class="fas fa-arrow-right"></i>review</a>
+         <a href="#" class="link"><i class="fas fa-arrow-right"></i>blogs</a>
+        </div>
+          <div class="box">
+        <h3>newsletter</h3>
+        <p>subscribe for latest updates</p>
+        <input type="email" placeholder="email"  class="email">
+        <input type="submit" value="subscribe" class="btn">
+        </div>
+        
+       </div>
+    <div class="credit">created by <span> Ms. siri </span> | all rights reserved </div>
+    
+    </section>
+    </body>
+    
+   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+    let searchf=document.querySelector(".searchform");
+    let searchb=document.querySelector("#search");
+    searchb.onclick=()=>{
+        searchf.classList.toggle('active'); 
+         loginf.classList.remove('active'); 
+         shop.classList.remove('active'); 
+         navbar.classList.remove('active'); 
+    }
+    
+     let loginf=document.querySelector(".login");
+    let login=document.querySelector("#login");
+    login.onclick=()=>{
+        loginf.classList.toggle('active');
+         searchf.classList.remove('active'); 
+         shop.classList.remove('active'); 
+         navbar.classList.remove('active'); 
+    }
+    
+     let shop=document.querySelector(".shoppingc");
+    let cart=document.querySelector("#cart");
+    cart.onclick=()=>{
+        shop.classList.toggle('active'); 
+         searchf.classList.remove('active'); 
+         loginf.classList.remove('active'); 
+         navbar.classList.remove('active'); 
+    }
+    
+    let navbar=document.querySelector(".navbar");
+    let menu=document.querySelector("#menu");
+    menu.onclick=()=>{
+        navbar.classList.toggle('active'); 
+         searchf.classList.remove('active'); 
+         loginf.classList.remove('active'); 
+         shop.classList.remove('active'); 
+    }
+    
+     window.onscroll=()=>{
+         
+         searchf.classList.remove('active'); 
+         loginf.classList.remove('active'); 
+         shop.classList.remove('active'); 
+         navbar.classList.remove('active'); 
+    }
+     
+     
+     
+        var swiper = new Swiper(".pslider", {
+  loop:true,
+      spaceBetween: 20,
+    autoplay:{
+        delay:7500,
+        disableOnInteraction:false,
+    },
+            centeredSlides:true,
+      breakpoints: {
+       0: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        1028: {
+          slidesPerView: 3,
+        },
+      },
+    });
+            var swiper = new Swiper(".review-swiper", {
+  loop:true,
+      spaceBetween: 20,
+    autoplay:{
+        delay:7500,
+        disableOnInteraction:false,
+    },
+            centeredSlides:true,
+      breakpoints: {
+       0: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        1028: {
+          slidesPerView: 3,
+        },
+      },
+    });
+     
+    
+
+       
+        
+    </script>
+</html>
